@@ -1,0 +1,84 @@
+
+
+fun int pow 
+  stack int is 12
+  heap int ih 14
+
+  printf "{}" is ih
+
+  ref int ir is
+  printf "{}" #(* ir ir)
+  heapdel ih
+  return #(* ir ir) 
+end
+
+
+fun <integral> pow
+  param <integral> i1
+  param <integral> i2
+
+  return #(* i1 i2)
+end
+
+fun <integral> pow
+  param <integral> i
+
+  if #(== i 0)
+    return 1
+  else 
+    return #(* i i)
+  end
+end
+
+fun int main
+  param int argc
+  param string_s argv
+
+  if #(== argc 0)
+    return 0
+  else 
+    stack int p #(pow 2)
+    return p
+  end
+end
+
+fun main 
+  param int argc
+  param string_s argv
+
+  stack int i 0
+
+  while  #(> i 0)
+    printf "{}" i
+    dec i
+  end 
+
+  return 0
+end
+  
+type pow_result
+  stack int res
+  stack int err
+end
+
+fun pow_result pow
+  param int i
+
+  stack pow_result r
+  let r.res #(* i i)
+  return r
+end
+
+fun main 
+  param int argc 
+  param string_s argv
+  
+  stack pow_result r #(pow 1)
+
+  if #(!= r.err 0)
+    return -1
+  else 
+    return 0
+  end
+end
+
